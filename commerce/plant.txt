@@ -1,0 +1,30 @@
+Create Listing:
+    - title <- inp
+    - description <- textarea
+    - starting bid  <- inp
+    - image url <- inp
+    - catagory <- selection 
+
+SQL TABLES: 
+
+Listings Table:
+    id INTEGER NOT NULL PRINAMRY KEY AUTOINDENT
+    title TEXT NOT NULL 
+    description TEXT
+    statring_bid INTEGER NOT NULL
+    img_url TEXT NOT NULL
+    catagory TEXT NOT NULL
+    user_id INTEGER NOT NULL
+    sold BOOLEAN default false
+    sold_for INTEGER NOT NULL default -10
+
+Bids Table:
+    user_id INTEGER NOT NULL
+    amount INTEGER NOT NULL
+    listing_id INTEGER NOT NULL 
+
+Comments Table
+    id INTEGER NOT NULL AUTOINDENT PRINAMRY KEY
+    text TEXT NOT NULL
+    user_id INTEGER NOT NULL
+    listing_id TEXT NOT NULL 

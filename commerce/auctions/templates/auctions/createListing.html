@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="container-fluid">
+        <form action="{% url 'createListing' %}" method="post">
+            {% csrf_token %}
+            <!-- Title and TextArea -->
+            <div style="display: inline-block; width: 30%;">
+                <div class="container-fluid">
+                    <input class="form-control" type="text" placeholder="Title" name="title" >
+                </div>
+                <div class="container-fluid">
+                    <textarea class="form-floating form-control" name="dis" placeholder="Description of Item"></textarea>
+                </div>
+            </div>
+            <!-- The Rest of the form -->
+            <div style="display: inline-block;">
+                <div class="container-fluid input-group ">
+                    <span class="input-group-text" id="basic-addon1">$</span>
+                    <input type="text" name="startBid" class="form-control" placeholder="Starting Bid" aria-describedby="basic-addon1">
+                </div>
+                <div class="container-fluid">
+                    <input name="imageUrl" class="form-control" type="url" placeholder="Image Url">
+                </div>
+                <div class="container-fluid">
+                    <select class="form-select form-control " required name="catagory">
+                        <option disabled selected value="" >Catagory</option>
+                        {% for cat in Catagories %}
+                            <option>{{cat}}</option>
+                        {% endfor %}
+                    </select>
+                </div >
+                <div class="container-fluid">
+                    <input class="btn btn-primary form-control" type="submit" value="Submit"> 
+                </div>
+            </div>
+
+        </form>
+    </div>
+    {{form}}
+{% endblock %}

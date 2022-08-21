@@ -1,0 +1,51 @@
+textarea {
+    min-height: 400px;
+}
+
+#read-view div, #read-view h3
+{
+    margin: 10px;
+}
+
+.leftSide
+{
+    position: absolute;
+    right: 1%;
+    top: 30%;
+}
+
+#read-reply
+{
+    position:absolute;
+    right:0%;
+    top: 0%;
+}
+
+
+@keyframes disapear {
+    0%
+    {
+        opacity: 1;
+        height: 100%;
+    }
+    75%
+    {   
+        opacity: 0;
+        height: 100%;
+    }
+    100%
+    {
+        opacity: 0;
+        height: 0;
+        line-height: 0%;
+    }
+}
+
+li
+{
+    animation-name: disapear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+
+}

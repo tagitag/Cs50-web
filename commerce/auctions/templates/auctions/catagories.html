@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for catagory in catagories %}
+        <li class="catLi list-group-item" onclick="window.location.href='/catagory/{{catagory}}'">
+            {{catagory}}
+        </li>
+        {% endfor %}
+    </ul>
+   
+{% endblock %}

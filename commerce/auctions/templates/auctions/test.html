@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <script>
+        
+
+        function setup(e)
+        {
+            let ul = document.getElementById("activeUL");
+            let listings = ul.children;
+            
+            for(let i = 0; i < listings.length; i++)
+            {
+                
+                listings[i].addEventListener("click", () => {
+                    window.location.href = "listing/" + listings[i].id;;
+                }, false);
+            }
+        }
+
+        window.onload = () => {
+            setup();
+        } 
+    </script>
+    <h2>Active Listings</h2>
+    <ul id="activeUL">
+        {% for listing in Listings %}
+        <li id="{{listing.id}}">
+            <img src="{{listing.imag_url}}" alt="{{listing.title}}">
+            <p>{{listing.title}}</p>
+            <p>{{listing.description}}</p>
+            <p>{{listing.current_bid}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

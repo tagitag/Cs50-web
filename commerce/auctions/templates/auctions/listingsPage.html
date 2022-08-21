@@ -1,0 +1,71 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if winner.win and owner %}
+        {% if listing.sold_to == -10 %}
+            <div class="alert alert-danger"> The listing has not been sold to anyone </div>
+        {% else %}
+            <div class="alert alert-info"> The listing has been sold to {{winner.name}}</div>
+        {% endif %}
+    {% elif winner.win %}
+    <div class="alert alert-success"> The listing has been sold to {{winner.name}}</div>
+    {% endif %}
+
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <img src="{{listing.imag_url}}" alt="{{listing.title}}">
+            </li>
+            <li class="list-group-item">
+                <p class="title">{{listing.title}}</p>
+                <p class="description">{{listing.description}}</p>
+                <p class="catagory">Catagory: {{listing.catagory}} </p>
+            </li>
+            <li class="list-group-item">
+                <form action="{{listing.id}}" style="display: inline-block;" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Current Bid: <span style="font-weight:bolder;">{{listing.current_bid}}</span>$</span>
+                        <input class="form-control" type="number" name="bid" required value="" placeholder="Place Bid" aria-describedby="basic-addon1">
+                        <input class="form-control" type="submit" name="bidbutton" value="bid">
+                    </div>
+                </form>
+                
+                {% if message %}
+                <p>{{message}}</p>
+                {% endif %}
+                <form action="{{listing.id}}" style="display: inline-block;" method="POST" >
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input class="form-control" type="submit" name="watchbutton" value="watch">
+                        {% if owner and not winner.win %}
+                        <input class="form-control" type="submit" name="closebutton" value="close">
+                        {% endif %}
+                    </div>
+                </form>
+            </li>
+
+    </div>
+    <div>
+        <form action="{{listing.id}}" method="POST">
+            {% csrf_token %}
+            <div>
+                <input class="form-control" type="submit" value="Comment" name="commentbutton">
+            </div>
+            <div>
+                <textarea class="form-control" placeholder="Comment Bellow!" name="comment"></textarea>
+            </div>
+        </form>
+        <hr>
+        <ul class="list-group">
+            {% for com in comments %}
+            <li class="list-group-item">
+                <div>
+                    <p> {{com.user_name}} </p>
+                    <p> {{com.text}} </p> 
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

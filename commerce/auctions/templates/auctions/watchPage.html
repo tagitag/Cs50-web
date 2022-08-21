@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<script>
+        
+
+    function setup(e)
+    {
+        let ul = document.getElementById("watchUL");
+        let listings = ul.children;
+        
+        for(let i = 0; i < listings.length; i++)
+        {
+            
+            listings[i].addEventListener("click", () => {
+                window.location.href = "listing/" + listings[i].id;;
+            }, false);
+        }
+    }
+
+    window.onload = () => {
+        setup();
+    } 
+</script>
+<h2>Watch List</h2>
+<ul id="watchUL" class="list-group">
+    {% for watch in watchs %}
+        {% if not watch.sold %}
+        <li class="list-group-item" id="{{watch.id}}">
+            <div class="indexListingDiv imgcontainer">
+                <img src="{{watch.imag_url}}" alt="{{watch.title}}">
+            </div>
+            <div class="indexListingDiv" style="padding-left: 10px;" >  
+                <p class="title" >{{watch.title}}</p>
+                <p class="description" >{{watch.description}}</p>
+                <p class="bid" >The Current Bid Is: <span class="bidSpan">{{watch.current_bid}}</span> $</p>
+            </div>
+        </li>
+        {% else %}
+        <li class="list-group-item" style="background-color: grey;" id="{{watch.id}}">
+            <div class="indexListingDiv imgcontainer" style="background-color: grey;">
+                <img src="{{watch.imag_url}}" alt="{{watch.title}}">
+            </div>
+            <div class="indexListingDiv" style="padding-left: 10px; background-color: grey;" >  
+                <p class="title" >{{watch.title}}</p>
+                <p class="description" >{{watch.description}}</p>
+                <p class="bid" >The Current Bid Is: <span class="bidSpan">{{watch.current_bid}}</span> $</p>
+            </div>
+        </li>
+        {% endif %}
+
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

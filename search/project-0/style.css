@@ -1,0 +1,142 @@
+.navbar
+{
+    display:flex;
+    justify-content: right;
+    margin-bottom: 2%;
+    height: 6%;
+    
+}
+a, a:hover
+{
+    color: black; 
+    text-decoration: none;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+.search-form
+{
+    height: 100%;
+    display: flex;
+    justify-content:space-evenly;
+}
+.center-middle
+{
+    position: absolute;
+    top: 40%;
+}
+.search-input
+{
+    width: 10cm;
+    height: 1cm;
+    border-radius: 25px;
+    border-width: 1px;
+    border-color: black;
+    margin-bottom: 20px;
+    padding-left: 10px
+}
+.search-button
+{
+    border-radius: 25px;
+    border-width: 0;
+    margin-left: 5px;
+    height: 25px;
+    width: 40%;
+    
+}
+.Google
+{
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.SmallGoogle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+}
+.top
+{
+    position: relative;
+    top: 0%;
+}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+}
+.advanced-container
+{
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    height: 100%;
+}
+.advanced-form
+{
+    color:black;
+}
+.advanced-form p, .advanced-form input[type=text]
+{
+    display: inline-block;
+    width:21%;
+}
+.advanced-form .per
+{
+    display: inline-block;
+    width:fit-content;
+}
+.empty
+{
+    padding:0;
+    width: 30%;
+    display: inline-block;
+}
+.advanced-form input[type="button"]
+{
+    background-Color: #0099ff;
+    color:white;
+    font-size: large;
+    border-color: #0099ff;
+    position: relative;
+    left: 0%;
+    width: 25%;
+
+}
+.advanced-form input[type="button"]:hover
+{
+    background-color: #80ccff;
+    border-color:#80ccff;
+}
+
+.google-nav
+{
+    position:absolute;
+    left: 1%;
+    padding-left: 50px;
+
+}
+.google-nav .GoogleBig 
+{
+    position: absolute;
+    left: 0;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.Advanced
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    font-display: bolder;
+    color: rgb(252, 90, 90);
+    padding: 0%;
+    margin: 0%;
+}

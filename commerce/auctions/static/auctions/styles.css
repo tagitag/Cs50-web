@@ -1,0 +1,49 @@
+body {
+    padding: 10px;
+    
+}
+.title
+{
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.bid
+{
+   font-family: Arial, Helvetica, sans-serif;
+}
+.bidSpan
+{
+    font-size: larger;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    color: #00bf00;
+}
+.description
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.indexListingDiv
+{
+    display: inline-block;
+    
+}
+.CrTextArea
+{
+    height: 90%;
+    background-color: red;
+}
+.catLi
+{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img
+{
+    max-width: 100%;
+}
+.imgcontainer
+{
+    max-width: 30%;
+}
